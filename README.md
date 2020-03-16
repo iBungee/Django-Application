@@ -4,7 +4,10 @@ The purpose is this repo is to learn Django
 Tutorial based on youtube playlist [Django Tutorials](https://www.youtube.com/playlist?list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p)
 
 Create admin user
-`python3 manage.py migrate && python3 manage.py makemigrations`
+```sh
+python3 manage.py migrate
+python3 manage.py makemigrations
+```
 `python3 manage.py createsuperuser`
 
 Create normal user
@@ -17,4 +20,12 @@ user.is_staff=False
 user.save()
 ```
 
-Start a new app
+Documentation
+[QuerySet]{https://docs.djangoproject.com/en/3.0/ref/models/querysets/}
+[Signals]{https://docs.djangoproject.com/en/3.0/topics/signals/}
+[django-cron]{https://django-cron.readthedocs.io/en/latest/}
+[Templates]{https://docs.djangoproject.com/en/3.0/topics/templates/}
+
+How to run cron job
+`python3 manage.py runcrons`
+`crontab -e`

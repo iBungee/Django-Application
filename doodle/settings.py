@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'poll.apps.PollConfig',
     'users.apps.UsersConfig',
     'blog.apps.BlogConfig',
     'crispy_forms',
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_cron'
 ]
 
 MIDDLEWARE = [
@@ -68,6 +70,10 @@ TEMPLATES = [
             ],
         },
     },
+]
+
+CRON_CLASSES = [
+    'poll.cron.CronJob',
 ]
 
 WSGI_APPLICATION = 'doodle.wsgi.application'
