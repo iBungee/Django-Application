@@ -13,6 +13,12 @@ Create normal user
 `python3 manage.py shell`
 ```python3
 from django.contrib.auth.models import User
+user = User.objects.create_user('staff', password='staff')
+user.is_superuser=False
+user.is_staff=True
+user.save()
+
+from django.contrib.auth.models import User
 user = User.objects.create_user('test', password='test')
 user.is_superuser=False
 user.is_staff=False

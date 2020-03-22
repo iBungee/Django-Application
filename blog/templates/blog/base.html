@@ -28,6 +28,7 @@
             <a href="{% url 'login' %}">Login</a>
             <a href="{% url 'register' %}">Register</a>
         {% endif%}
+        <a href="{% url 'poll-home' %}">Poll</a>
         <div class="container">
             {% if messages %}
                 {% for message in messages %}

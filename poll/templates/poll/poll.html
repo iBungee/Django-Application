@@ -1,10 +1,35 @@
 {% extends "blog/base.html" %}
+{ load extra }
 {% block content %}
     <h2>Poll</h2>
-    <form method="POST">
+    <form method="POST" name="poll">
         {% csrf_token %}
-        {{ form.person }}
-        {{ form.date }}
-        {{ form.available }}
+        {% for date, availabilities in pollInfo.items %}
+            {{ date }}
+            {% for availability in availabilities %}
+
+            {% if availability.isAvailable %}
+                <input type="checkbox" checked="checked" name="{{ availability.user }}" value="{{ date }}">
+            {% else %}
+                <input type="checkbox" name="{{ availability.user }}" value="{{ date }}">
+            {% endif %}
+
+            <label>{{ availability.user }}</label>
+            {% endfor %}
+            <br>
+        {% endfor %}
+        <button type="submit" name="submit" value="submit">Submit</button>
+        <br>
+
+        <input type="text" name="username">
+        <button type="submit", name="newUser", value="newUser">Add User</button>
+        <br>
+        <input type="date" name="date">
+        <datalist>
+            {% for users in unlistedUsers %}
+            <option value=""></option>
+            {% endfor %}
+        </datalist>
+        <button type="submit", name="newDate", value="newDate">Add Date</button>
     </form>
 {% endblock content%}
